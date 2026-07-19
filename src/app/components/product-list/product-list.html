@@ -1,0 +1,14 @@
+<div class="search-bar">
+    <product-search-bar (searchTerm)="onSearch($event)"/>
+</div>
+
+<div class="products-grid">
+
+  @for (item of filteredProducts(); track item.id) {
+    <app-product-card 
+      [product]="item" 
+    />
+  } @empty {
+    <p class="products-empty">No se encontraron productos</p>
+  }
+</div>

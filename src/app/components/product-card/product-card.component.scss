@@ -1,0 +1,43 @@
+
+
+.product-mini-card {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+  border-radius: 8px;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  --rebecca-purple: hsl(270, 60%, 15%);
+  background-image: linear-gradient(
+    to bottom right,
+    hsla(203, 92%, 35.5%, 0.25),
+    var(--rebecca-purple),
+    hsla(27.6, 87.1%, 35.7%, 0.25)
+  );
+  background-color: var(--rebecca-purple);
+  color: white;
+
+  &__image {
+    width: 100%;
+    height: 70%;
+    object-fit: scale-down;
+  }
+
+  &__title {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  &__info {
+    text-align: left;
+    margin-top: 1rem;
+  }
+}

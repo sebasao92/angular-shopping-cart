@@ -1,0 +1,37 @@
+<div class="product-mini-card">
+  
+  <img 
+    [src]="product().image" 
+    [alt]="product().title"
+    class="product-mini-card__image"
+    loading="lazy"
+  />
+
+  <!-- Información Esencial (Sin descripción larga) -->
+  <div class="product-mini-card__info">
+    <span class="product-mini-card__category">
+      {{ product().category }}
+    </span>
+    
+    <div class="product-mini-card__title" [title]="product().title">
+      {{ product().title }}
+    </div>
+    
+    <div class="product-mini-card__footer">
+      <span class="product-mini-card__price">
+        {{ product().price | currency }}
+      </span>
+      
+      <button 
+        (click)="onAddToCart.emit(product())"
+        class="product-mini-card__btn"
+        title="Añadir al carrito"
+      >
+        <!-- Icono pequeño en vez de texto largo -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
