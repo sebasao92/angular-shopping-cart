@@ -1,6 +1,8 @@
-@for (item of cartItems(); track item.product?.id) {
-    <cart-item [item]="item" (removeItem)="removeItem($event)"/>
-} @empty {
-    <p class="cart-empty">No hay productos en el carrito</p>
-}
-<p>Total: ${{ totalPrice() | number:'1.2-2' }}</p>
+<div class="container">
+    @for (item of cartItems(); track item.product?.id) {
+        <cart-item [item]="item" (removeItem)="removeItem($event)"/>
+    } @empty {
+        <p class="cart-empty">No hay productos en el carrito</p>
+    }
+    <p>Total: ${{ totalPrice() | number:'1.2-2' }}</p>
+</div>

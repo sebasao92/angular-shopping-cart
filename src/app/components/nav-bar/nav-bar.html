@@ -1,5 +1,12 @@
-<p> {{ totalItems() }}</p>
-<button (click) = "toggleCart()">Show Cart</button>
-@if (isCartVisible) {
-    <nav-bar-cart/>
-}
+<div class="container">
+    <button (click) = "toggleCart()" class="cart-btn">
+        <span class="cart-btn__icon">🛒</span>
+
+        @if (totalItems() > 0) {
+            <span class="cart-btn__badge"> {{ totalItems() }} </span>
+        }
+    </button>
+    @if (isCartVisible) {
+        <nav-bar-cart/>
+    }
+</div>

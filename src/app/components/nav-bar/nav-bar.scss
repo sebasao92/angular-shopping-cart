@@ -1,0 +1,69 @@
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 3rem;
+    box-sizing: border-box;
+}
+
+.cart-btn {
+  /* 1. 'relative' es obligatorio para que el badge se oriente respecto al botón */
+  position: relative; 
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &__icon {
+    font-size: 1.1rem;
+  }
+
+  &__badge {
+    position: absolute;
+    /* 2. Anclamos en la esquina inferior derecha */
+    bottom: -6px; 
+    right: -6px;
+
+    /* Estilos visuales de la burbuja */
+    background-color: #ef4444; /* Rojo llamativo */
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 9999px; /* Forma circular */
+    
+    /* Centrado perfecto del número */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+
+    /* Borde del mismo color que el fondo de tu nav para darle relieve */
+    border: 2px solid hsl(270, 60%, 15%); 
+  }
+}
+
+/* 2. Selecciona directamente el componente del carrito */
+nav-bar-cart {
+  /* Lo saca del flujo normal del documento para que quede 'flotando' */
+  position: absolute; 
+  
+  /* Se alinea exactamente debajo del contenedor y hacia la derecha */
+  top: calc(100% + 0.5rem); /* Queda 0.5rem por debajo del botón */
+  right: 0; 
+  
+  /* Asegura que el carrito quede POR ENCIMA de tarjetas, imágenes o textos */
+  z-index: 1000; 
+
+  /* Opcional: Define un ancho fijo o máximo para que no se deforme */
+  width: 30%; 
+}
