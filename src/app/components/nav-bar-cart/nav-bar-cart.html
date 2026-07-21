@@ -1,0 +1,5 @@
+@for (item of cartItems(); track item.product?.id) {
+    <cart-item [item]="item" />
+} @empty {
+    <p class="cart-empty">No hay productos en el carrito</p>
+}

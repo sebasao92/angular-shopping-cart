@@ -1,18 +1,21 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { Product } from '../product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-card',
-  standalone: true,
   imports: [CurrencyPipe],
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss'] // Lo dejas por si necesitas CSS personalizado
+  styleUrls: ['./product-card.component.scss']
 })
 export class ProductCard {
-  // Recibe el producto usando Signal Inputs de forma obligatoria
-  public product = input.required<Product>();
 
-  // Output moderno basado en la nueva API de Angular
-  public onAddToCart = output<Product>();
+  private readonly cartService = inject(CartService);
+
+  public readonly product = input.required<Product>();
+
+  onAddToCart(product: Product): void {
+    this.cartService.addProduct(product);
+  }
 }

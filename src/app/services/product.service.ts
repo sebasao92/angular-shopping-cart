@@ -1,11 +1,8 @@
-import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, httpResource } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Service } from '@angular/core';
+import { httpResource } from '@angular/common/http';
 import { Product } from '../components/product';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class ProductService {
 
   private readonly API_URL = 'https://fakestoreapi.com/products';
