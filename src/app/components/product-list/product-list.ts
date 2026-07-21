@@ -2,8 +2,6 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { ProductCard } from '../product-card/product-card.component';
 import { ProductService } from '../../services/product.service';
 import { SearchBar } from '../search-bar/search-bar';
-import { CartService } from '../../services/cart.service';
-import { Product } from '../product';
 
 @Component({
   selector: 'product-list',
@@ -14,7 +12,6 @@ import { Product } from '../product';
 export class ProductList {
 
   private readonly productService: ProductService = inject(ProductService);
-  private readonly cartService = inject(CartService);
 
   public readonly products = computed(() => this.productService.productsResource.value() ?? []);
   protected readonly filteredProducts = computed(() => this.products().filter(
@@ -24,10 +21,6 @@ export class ProductList {
 
   onSearch(searchTerm: string): void {
     this.searchTerm.set(searchTerm);
-  }
-
-  onAddToCart(product: Product): void {
-    this.cartService.addProduct(product);
   }
 
 }

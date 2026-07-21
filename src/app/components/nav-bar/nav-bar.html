@@ -1,1 +1,5 @@
 <p> {{ totalItems() }}</p>
+<button (click) = "toggleCart()">Show Cart</button>
+@if (isCartVisible) {
+    <nav-bar-cart/>
+}

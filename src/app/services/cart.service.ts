@@ -6,6 +6,7 @@ import { CartItem } from '../components/cart-product';
 export class CartService {
 
     private readonly _cart = signal<CartItem[]>([]);
+    
     readonly cartItems = this._cart.asReadonly();
     readonly totalItems = computed(() => this._cart().reduce((total, item) => total + item.quantity, 0));
     readonly totalPrice = computed(() => this.cartItems().reduce((total, item) => total + (item.product?.price || 0) * item.quantity, 0));
