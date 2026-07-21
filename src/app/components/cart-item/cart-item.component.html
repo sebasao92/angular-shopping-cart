@@ -4,4 +4,5 @@
     <p>{{ product.title }}</p>
     <p>{{ product.price }}</p>
     <p>{{ item().quantity }}</p>
+    <button (click)="removeItem.emit(item())"> Remove </button>
 </div>

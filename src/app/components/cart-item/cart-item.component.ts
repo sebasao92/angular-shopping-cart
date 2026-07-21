@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { CartItem } from '../cart-product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'cart-item',
@@ -9,6 +10,7 @@ import { CartItem } from '../cart-product';
 })
 export class CartItemComponent {
 
-  public readonly item = input.required<CartItem>();
+  readonly item = input.required<CartItem>();
+  readonly removeItem = output<CartItem>();
 
 }
